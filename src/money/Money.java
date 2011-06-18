@@ -1,6 +1,6 @@
 package money;
 
-public class Money {
+public class Money implements Expression{
 	/**
 	 * フィールド変数
 	 */
@@ -50,4 +50,12 @@ public class Money {
 		return amount + " " + currency;
 	}
 
+	public Expression plus(Money addend) {
+		return new Sum(this,addend);
+	}
+	
+	public Money reduce(Bank bank,String to){
+		int rate = bank.rate(currency, to);
+		return new Money(amount / rate,to);
+	}
 }
