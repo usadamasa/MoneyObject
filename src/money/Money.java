@@ -1,28 +1,14 @@
 package money;
 
 public class Money implements Expression{
-	/**
-	 * フィールド変数
-	 */
 	public Integer amount;
 	public String currency;
 
-	/**
-	 * コンストラクタ
-	 *
-	 * @param amount
-	 * @param currency
-	 */
 	public Money(int amount, String currency) {
 		this.amount = amount;
 		this.currency = currency;
 	}
 
-	/**
-	 *
-	 * @param multiplier
-	 * @return Money
-	 */
 	public Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
